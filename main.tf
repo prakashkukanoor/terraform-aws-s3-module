@@ -9,6 +9,7 @@ locals {
 # Create s3 bucket
 resource "aws_s3_bucket" "this" {
   count = length(var.bucket_names)
+  region = var.region
 
   bucket = var.bucket_names[count.index] # Replace with your bucket name
 
