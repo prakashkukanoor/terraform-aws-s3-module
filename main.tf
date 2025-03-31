@@ -4,9 +4,6 @@ locals {
     managedBy   = var.team
     createdBy   = "terraform"
   }
-  policies = jsondecode(templatefile("${var.path_to_json_file}", {
-    bucket_name = var.bucket_names
-  }))
 }
 
 # Create s3 bucket
