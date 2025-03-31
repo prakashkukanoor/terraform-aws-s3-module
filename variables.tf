@@ -8,6 +8,12 @@ variable "path_to_json_file" {
   description = "Name of the json file with policy"
 }
 
+variable "region" {
+  type        = string
+  description = "region for bucket creation"
+}
+
+
 variable "environment" {
   type = string
 }
