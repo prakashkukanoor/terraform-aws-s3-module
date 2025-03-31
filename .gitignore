@@ -4,6 +4,7 @@
 # .tfstate files
 *.tfstate
 *.tfstate.*
+policy.json.tpl
 
 # Crash log files
 crash.log
