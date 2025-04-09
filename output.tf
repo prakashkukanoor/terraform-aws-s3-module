@@ -1,5 +1,5 @@
 output "buckets" {
-  value = aws_s3_bucket.this[*].bucket
+  value = [ for s3_obj in aws_s3_bucket.this: s3_obj.bucket]
 }
 
 # output "application_public_subnets" {
