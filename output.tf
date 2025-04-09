@@ -1,6 +1,6 @@
-# output "vpc" {
-#   value = aws_vpc.this.id
-# }
+output "buckets" {
+  value = aws_s3_bucket.this[*].bucket
+}
 
 # output "application_public_subnets" {
 #   value = aws_subnet.application_public[*].id
