@@ -3,9 +3,9 @@ variable "bucket_names" {
   type        = list(string)
 }
 
-variable "path_to_json_file" {
+variable "path_to_tpl_file" {
   type        = string
-  description = "Name of the json file with policy"
+  description = "Name of the tpl file with policy"
 }
 
 variable "region" {
