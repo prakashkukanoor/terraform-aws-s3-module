@@ -7,7 +7,7 @@ locals {
 
   # bucket_policies = {
   #   for bucket_name, bucket_resource in aws_s3_bucket.this :
-  #   bucket_name => templatefile("${var.path_to_tpl_file}", {
+  #   bucket_name => templatefile("${var.path_to_json_tpl_file}", {
   #     bucket_name     = bucket_resource.id
   #     vpc_endpoint_id = var.vpc_endpoint_id
   #   })

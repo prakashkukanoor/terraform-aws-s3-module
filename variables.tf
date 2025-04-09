@@ -3,7 +3,7 @@ variable "bucket_names" {
   type        = list(string)
 }
 
-variable "path_to_tpl_file" {
+variable "path_to_json_tpl_file" {
   type        = string
   description = "Name of the tpl file with policy"
 }
