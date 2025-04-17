@@ -1,3 +1,10 @@
+variable applications {
+  type = map(object({
+    buckets = list(string)
+    policy_json_tpl_file_path = string
+  }))
+}
+
 variable "bucket_names" {
   description = "Name for the S3 bucket"
   type        = list(string)
