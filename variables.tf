@@ -1,6 +1,6 @@
-variable applications {
+variable "applications" {
   type = map(object({
-    buckets = list(string)
+    buckets                   = list(string)
     policy_json_tpl_file_path = string
   }))
 }
