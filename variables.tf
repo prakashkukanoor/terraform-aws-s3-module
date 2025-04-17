@@ -5,15 +5,6 @@ variable applications {
   }))
 }
 
-variable "bucket_names" {
-  description = "Name for the S3 bucket"
-  type        = list(string)
-}
-
-variable "path_to_json_tpl_file" {
-  type        = string
-  description = "Name of the tpl file with policy"
-}
 variable "region" {
   type        = string
   description = "region for bucket creation"
