@@ -10,6 +10,7 @@ locals {
       for bucket_name in domain_data.buckets : {
         team                      = domain_name
         policy_json_tpl_file_path = domain_data.policy_json_tpl_file_path
+        arn                       = domain_data.arn
         bucket_name               = bucket_name
       }
     ]
@@ -69,7 +70,7 @@ resource "aws_s3_bucket_policy" "this" {
 
   policy = templatefile("${each.value.policy_json_tpl_file_path}", {
     bucket = each.value.bucket_name
-    arn = var.allow_principle
+    arn    = each.value.arn
   })
 
 }
