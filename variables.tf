@@ -2,13 +2,7 @@ variable "applications" {
   type = map(object({
     buckets                   = list(string)
     policy_json_tpl_file_path = string
-    arn                       = list(string)
   }))
-}
-
-variable "allow_principle" {
-  type        = list(string)
-  description = "allow specific roles to access the bucket"
 }
 
 variable "region" {

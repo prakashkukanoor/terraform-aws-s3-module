@@ -61,8 +61,6 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "this" {
   }
 }
 
-data "aws_sts_get_caller_identity" "current" {}
-
 # Attach iam policy to the s3
 resource "aws_s3_bucket_policy" "this" {
   for_each = { for idx, value in local.applications_data : "${value.bucket_name}" => value }
@@ -71,7 +69,6 @@ resource "aws_s3_bucket_policy" "this" {
 
   policy = templatefile("${each.value.policy_json_tpl_file_path}", {
     bucket = each.value.bucket_name
-    arn    = data.aws_sts_get_caller_identity.current.arn
   })
 
 }
