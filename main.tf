@@ -62,13 +62,13 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "this" {
 }
 
 # Attach iam policy to the s3
-# resource "aws_s3_bucket_policy" "this" {
-#   for_each = {for idx, value in local.applications_data: "${value.bucket_name}" => value }
+resource "aws_s3_bucket_policy" "this" {
+  for_each = { for idx, value in local.applications_data : "${value.bucket_name}" => value }
 
-#   bucket = aws_s3_bucket.this[each.value.bucket_name].id
+  bucket = aws_s3_bucket.this[each.value.bucket_name].id
 
-#   policy = jsondecode(templatefile("${each.value.policy_json_tpl_file_path}", {
-#     bucket_id = aws_s3_bucket.this["${each.value.bucket_name}"].id
-#   }))
+  policy = templatefile("${each.value.policy_json_tpl_file_path}", {
+    bucket = each.value.bucket_name
+  })
 
-# }
+}
