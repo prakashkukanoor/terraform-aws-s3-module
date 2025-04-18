@@ -5,6 +5,11 @@ variable "applications" {
   }))
 }
 
+variable "allow_principle" {
+  type        = list(string)
+  description = "allow specific roles to access the bucket"
+}
+
 variable "region" {
   type        = string
   description = "region for bucket creation"
