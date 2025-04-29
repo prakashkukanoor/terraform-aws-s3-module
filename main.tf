@@ -70,7 +70,7 @@ resource "aws_s3_bucket_policy" "this" {
 
   policy = templatefile("${each.value.policy_json_tpl_file_path}", {
     bucket = each.value.bucket_name,
-    arn    = arn
+    arn    = each.value.arn
   })
 
 }
