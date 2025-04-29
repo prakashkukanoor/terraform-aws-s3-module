@@ -9,7 +9,7 @@ locals {
     for domain_name, domain_data in var.applications : [
       for bucket_name in domain_data.buckets : {
         team                      = domain_name
-        policy_json_tpl_file_path = domain_data.policy_json_tpl_file_path
+        policy_json_tpl_file_path = domain_data.s3_policy_json_tpl_path
         bucket_name               = bucket_name
       }
     ]

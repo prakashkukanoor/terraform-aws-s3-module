@@ -1,12 +1,12 @@
 variable "applications" {
   type = map(object({
     buckets                   = list(string)
-    policy_json_tpl_file_path = string
+    s3_policy_json_tpl_path = string
   }))
   default = {
     "devops-domain" = {
       buckets = ["devops-test"]
-      policy_json_tpl_file_path = ""
+      s3_policy_json_tpl_path = ""
     }
   }
 }
