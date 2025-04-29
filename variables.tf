@@ -8,7 +8,7 @@ variable "applications" {
     "devops-domain" = {
       buckets                 = ["devops-test"]
       s3_policy_json_tpl_path = ""
-      ar                      = ""
+      arn                     = ""
     }
   }
 }
