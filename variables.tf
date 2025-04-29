@@ -1,12 +1,14 @@
 variable "applications" {
   type = map(object({
-    buckets                   = list(string)
+    buckets                 = list(string)
     s3_policy_json_tpl_path = string
+    arn                     = string
   }))
   default = {
     "devops-domain" = {
-      buckets = ["devops-test"]
+      buckets                 = ["devops-test"]
       s3_policy_json_tpl_path = ""
+      ar                      = ""
     }
   }
 }
@@ -14,16 +16,16 @@ variable "applications" {
 variable "region" {
   type        = string
   description = "region for bucket creation"
-  default = "us-east-1"
+  default     = "us-east-1"
 }
 
 
 variable "environment" {
-  type = string
+  type    = string
   default = "DEV"
 }
 variable "team" {
-  type = string
+  type    = string
   default = "devops"
 }
 

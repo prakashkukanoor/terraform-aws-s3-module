@@ -11,6 +11,7 @@ locals {
         team                      = domain_name
         policy_json_tpl_file_path = domain_data.s3_policy_json_tpl_path
         bucket_name               = bucket_name
+        arn                       = domain_data.arn
       }
     ]
   ])
@@ -68,7 +69,8 @@ resource "aws_s3_bucket_policy" "this" {
   bucket = aws_s3_bucket.this[each.value.bucket_name].id
 
   policy = templatefile("${each.value.policy_json_tpl_file_path}", {
-    bucket = each.value.bucket_name
+    bucket = each.value.bucket_name,
+    arn    = arn
   })
 
 }
